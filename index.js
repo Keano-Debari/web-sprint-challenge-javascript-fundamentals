@@ -30,7 +30,7 @@ For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you ma
 
 function summation(num1) {
     let counter = 0;
-    for(let i = 0; i < num1; i++){
+    for(let i = 0; i < num1 + 1; i++){
       counter += i;
     }
       return counter;
