@@ -18,7 +18,7 @@ myFunction();
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
 
 
-
+// nested function can access internal but functions can grab other variables even when they are outside their scope. If it doesnt have access to that variable in its own scope it will jump out of its function and into the next one and keep searching for said variable until it reaches the global scope.
 
 
 /* 🚀🚀🚀 Task 2: Counter 🚀🚀🚀 */
@@ -28,9 +28,12 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
+function summation(num1) {
+    let counter = 0;
+    for(let i = 0; i < num1; i++){
+      counter += i;
+    }
+      return counter;
   }
  
 
@@ -55,10 +58,16 @@ const zooAnimals = [
   Use animalNames to populate and return the displayNames array with only the animal name and scientific name of each animal. 
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
+  
+  function animalNames(){
+    const displayNames = [];
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
+    zooAnimals.forEach(function(item){
+      return displayNames.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`);
+    });
+    return displayNames;
   }
+  
   
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -67,8 +76,11 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(){
+    const newArray = zooAnimals.map(function(item){
+      return `${item.animal_name.toLowerCase()}`;
+    });
+    return newArray;
   }
   
   
@@ -77,8 +89,11 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(){
+    const newArray = zooAnimals.filter(function(item){
+      return item.population < 5;
+    });
+    return newArray;
   }
   
 
@@ -88,8 +103,11 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(){
+    const totalPopulation = zooAnimals.reduce(function(acc, item){
+      return acc + item.population;
+    }, 0);
+    return totalPopulation;
   }
   
   
